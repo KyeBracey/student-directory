@@ -1,3 +1,25 @@
+def interactive_menu
+    students = []
+    loop do
+        puts "1. Input the students"
+        puts "2. Show the students"
+        puts "9. Exit the program"
+        selection = gets.chomp
+        case selection
+        when "1"
+            students = input_students
+        when "2"
+            print_header
+            print(students)
+            print_footer(students)
+        when "9"
+            exit
+        else
+            puts "I'm not sure what you meant. Please try again."
+        end
+    end
+end
+
 def input_students
     students = []
     cohorts = [
@@ -74,7 +96,4 @@ def print_footer(students)
     end
 end
 
-students = input_students
-print_header
-print(students)
-print_footer(students)
+interactive_menu
